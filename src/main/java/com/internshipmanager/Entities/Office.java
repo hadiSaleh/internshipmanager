@@ -3,7 +3,6 @@ package com.internshipmanager.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Offices")
 public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

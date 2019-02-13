@@ -4,16 +4,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "InternshipGoals")
-public class InternshipGoal {
+public class Goal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
+    @JoinColumn(name = "internship_id")
     private Internship internship;
 
     @ManyToOne
+    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @Column(name = "title", nullable = false, length = 50)

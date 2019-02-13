@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Internships")
 public class Internship {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +23,9 @@ public class Internship {
 
     @Column(name = "city", nullable = false, length = 50)
     private String city;
+
+    @Column(name = "active", nullable = false)
+    private boolean active;
 
     public long getId() {
         return id;
@@ -71,5 +73,13 @@ public class Internship {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

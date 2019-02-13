@@ -3,7 +3,6 @@ package com.internshipmanager.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +18,7 @@ public class Employee {
     private String city;
 
     @ManyToOne
+    @JoinColumn(name = "office_id")
     private Office office;
 
     public long getId() {

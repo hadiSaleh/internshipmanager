@@ -3,17 +3,20 @@ package com.internshipmanager.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "InternshipParticipants")
 public class InternshipParticipant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
+    @JoinColumn(name = "internship_id")
     private Internship internship;
 
     @ManyToOne
     private Employee employee;
+
+    @Column(name = "isAdmin", nullable = false)
+    private boolean isAdmin;
 
     public long getId() {
         return id;
@@ -37,5 +40,13 @@ public class InternshipParticipant {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
