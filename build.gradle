@@ -30,6 +30,7 @@ dependencies {
     compile("com.h2database:h2:1.4.197")
 
     compile("com.google.guava:guava:27.0.1-jre")
+    compile('commons-codec:commons-codec:1.8')
     
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -26,8 +26,8 @@ public class Goal {
     @Column(name = "place", length = 50)
     private String place;
 
-    @Column(name = "is_completed", nullable = false)
-    private boolean isCompleted;
+    @Column(name = "completed", nullable = false)
+    private boolean completed;
 
     @Column(name = "deadline")
     private Date deadline;
@@ -80,12 +80,12 @@ public class Goal {
         this.place = place;
     }
 
-    public boolean isCompleted() {
-        return isCompleted;
+    public boolean getCompleted() {
+        return completed;
     }
 
     public void setCompleted(boolean completed) {
-        isCompleted = completed;
+        this.completed = completed;
     }
 
     public Date getDeadline() {
