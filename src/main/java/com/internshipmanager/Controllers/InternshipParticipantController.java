@@ -2,10 +2,8 @@ package com.internshipmanager.Controllers;
 
 
 import com.google.common.collect.Lists;
-import com.internshipmanager.Entities.Internship;
 import com.internshipmanager.Entities.InternshipParticipant;
 import com.internshipmanager.Repositories.InternshipParticipantRepository;
-import com.internshipmanager.Repositories.InternshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

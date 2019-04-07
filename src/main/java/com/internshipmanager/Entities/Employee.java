@@ -20,6 +20,9 @@ public class Employee {
     @Column(name = "city", nullable = false, length = 50)
     private String city;
 
+    @Column(name = "administrator", nullable = false)
+    private boolean administrator;
+
     @ManyToOne
     @JoinColumn(name = "office_id")
     private Office office;
@@ -62,6 +65,14 @@ public class Employee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public boolean getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        this.administrator = administrator;
     }
 
     public Office getOffice() {

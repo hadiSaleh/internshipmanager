@@ -6,8 +6,9 @@ import com.internshipmanager.Entities.Employee;
 import com.internshipmanager.Entities.NewEmployee;
 import com.internshipmanager.Repositories.AuthCredentialsRepository;
 import com.internshipmanager.Repositories.EmployeeRepository;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,20 +29,26 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public Employee getOne(@PathVariable Long id){
+    public Employee getOne(@PathVariable Long id) {
         Optional<Employee> employee = employeeRepository.findById(id);
         return employee.orElse(null);
     }
 
     @PostMapping
-    public Employee addOne(@RequestBody NewEmployee newEmployee) {
+    public ResponseEntity<Employee> addOne(@RequestBody NewEmployee newEmployee) {
+        Employee e = employeeRepository.findByEmail(newEmployee.getEmail());
+        if (e != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
         Employee employee = new Employee();
         employee.setEmail(newEmployee.getEmail());
         employee.setFirstName(newEmployee.getFirstName());
         employee.setLastName(newEmployee.getLastName());
-        employee.setOffice(newEmployee.getOffice());
         employee.setCity(newEmployee.getCity());
-        employee =  employeeRepository.save(employee);
+        employee.setAdministrator(newEmployee.getAdministrator());
+        employee.setOffice(newEmployee.getOffice());
+        employee = employeeRepository.save(employee);
 
         AuthCredentials authCredentials = new AuthCredentials();
         authCredentials.setId(employee.getId());
@@ -49,6 +56,6 @@ public class EmployeeController {
         authCredentials.setPasswordHash(newEmployee.getPasswordHash());
         authCredentialsRepository.save(authCredentials);
 
-        return employee;
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(employee);
     }
 }

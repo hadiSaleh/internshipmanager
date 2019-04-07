@@ -5,6 +5,7 @@ public class NewEmployee {
     private String firstName;
     private String lastName;
     private String city;
+    private boolean administrator;
     private Office office;
     private String passwordHash;
 
@@ -30,6 +31,14 @@ public class NewEmployee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public boolean getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        this.administrator = administrator;
     }
 
     public Office getOffice() {
