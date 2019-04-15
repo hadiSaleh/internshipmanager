@@ -28,7 +28,7 @@ public class InternshipController {
     }
 
     @GetMapping("/{id}")
-    public Internship getOne(@PathVariable Long id){
+    public Internship getOne(@PathVariable Long id) {
         Optional<Internship> internship = internshipRepository.findById(id);
         return internship.orElse(null);
     }
@@ -38,12 +38,17 @@ public class InternshipController {
         return internshipRepository.save(newInternship);
     }
 
+    @GetMapping("/{id}/updateImageCount/{imageCount}")
+    public void updateInternshipImageCount(@PathVariable Long id, @PathVariable Integer imageCount) {
+        internshipRepository.updateImageCountForInternship(id, imageCount);
+    }
+
     @GetMapping("/byEmployee/{id}")
-    public List<Internship> getByEmployee(@PathVariable Long id){
+    public List<Internship> getByEmployee(@PathVariable Long id) {
         List<InternshipParticipant> internshipParticipants = internshipParticipantRepository.findByEmployee_id(id);
 
         List<Internship> internships = new ArrayList<>();
-        for (InternshipParticipant i:internshipParticipants) {
+        for (InternshipParticipant i : internshipParticipants) {
             internships.add(i.getInternship());
         }
 

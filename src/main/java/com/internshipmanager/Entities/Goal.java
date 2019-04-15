@@ -29,7 +29,7 @@ public class Goal {
     @Column(name = "completed", nullable = false)
     private boolean completed;
 
-    @Column(name = "deadline")
+    @Column(name = "deadline", nullable = false)
     private Date deadline;
 
     public long getId() {

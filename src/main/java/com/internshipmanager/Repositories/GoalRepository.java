@@ -3,5 +3,12 @@ package com.internshipmanager.Repositories;
 import com.internshipmanager.Entities.Goal;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface GoalRepository extends CrudRepository<Goal, Long> {
+    List<Goal> findByInternship_idAndEmployee_id(long internshipId, long employeeId);
+
+    List<Goal> findByInternship_id(long id);
+
+    List<Goal> findByEmployee_id(long id);
 }

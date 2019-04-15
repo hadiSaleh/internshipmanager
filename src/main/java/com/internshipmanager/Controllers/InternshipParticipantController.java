@@ -22,7 +22,7 @@ public class InternshipParticipantController {
     }
 
     @GetMapping("/{id}")
-    public InternshipParticipant getOne(@PathVariable Long id){
+    public InternshipParticipant getOne(@PathVariable Long id) {
         Optional<InternshipParticipant> internshipParticipant = internshipParticipantRepository.findById(id);
         return internshipParticipant.orElse(null);
     }

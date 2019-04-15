@@ -8,4 +8,5 @@ import java.util.List;
 public interface InternshipParticipantRepository  extends CrudRepository<InternshipParticipant, Long> {
     List<InternshipParticipant> findByEmployee_id(long id);
 
+    List<InternshipParticipant> findByInternship_id(long id);
 }
