@@ -32,6 +32,9 @@ public class Goal {
     @Column(name = "deadline", nullable = false)
     private Date deadline;
 
+    @Column(name = "attachment_count")
+    private int attachmentCount = 0;
+
     public long getId() {
         return id;
     }
@@ -94,5 +97,13 @@ public class Goal {
 
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
+    }
+    
+    public int getAttachmentCount() {
+        return attachmentCount;
+    }
+
+    public void setAttachmentCount(int attachmentCount) {
+        this.attachmentCount = attachmentCount;
     }
 }

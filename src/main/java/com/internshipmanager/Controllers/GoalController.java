@@ -33,6 +33,11 @@ public class GoalController {
         return goals;
     }
 
+    @GetMapping("/{id}/updateAttachmentCount/{attachmentCount}")
+    public void updateGoalAttachmentCount(@PathVariable Long id, @PathVariable Integer attachmentCount) {
+        goalRepository.updateAttachmentCountForGoal(id, attachmentCount);
+    }
+
     @PostMapping()
     public Goal addOne(@RequestBody Goal newGoal) {
         return goalRepository.save(newGoal);
