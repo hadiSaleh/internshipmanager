@@ -52,6 +52,11 @@ public class EmployeeController {
         return employees;
     }
 
+    @PostMapping("update")
+    public Employee completeGoal(@RequestBody Employee updatedEmployee) {
+        return employeeRepository.save(updatedEmployee);
+    }
+
     @PostMapping
     public ResponseEntity<Employee> addOne(@RequestBody NewEmployee newEmployee) {
         Employee e = employeeRepository.findByEmail(newEmployee.getEmail());

@@ -1,10 +1,9 @@
 package com.internshipmanager.Entities;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-public class Goal {
+public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -23,17 +22,9 @@ public class Goal {
     @Column(name = "description", length = 1024)
     private String description;
 
-    @Column(name = "place", length = 50)
-    private String place;
-
     @Column(name = "completed", nullable = false)
     private boolean completed;
 
-    @Column(name = "deadline", nullable = false)
-    private Date deadline;
-
-    @Column(name = "note")
-    private String note;
 
     public long getId() {
         return id;
@@ -75,35 +66,11 @@ public class Goal {
         this.description = description;
     }
 
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
     public boolean getCompleted() {
         return completed;
     }
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
-    }
-
-    public Date getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
     }
 }

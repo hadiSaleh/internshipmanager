@@ -33,9 +33,12 @@ public class GoalController {
         return goals;
     }
 
-    @GetMapping("/{id}/updateAttachmentCount/{attachmentCount}")
-    public void updateGoalAttachmentCount(@PathVariable Long id, @PathVariable Integer attachmentCount) {
-        goalRepository.updateAttachmentCountForGoal(id, attachmentCount);
+    @PostMapping("complete")
+    public Goal completeGoal(@RequestBody Goal updatedGoal) {
+        Goal goal = goalRepository.findById(updatedGoal.getId()).get();
+        goal.setNote(updatedGoal.getNote());
+        goal.setCompleted(true);
+        return goalRepository.save(goal);
     }
 
     @PostMapping()
