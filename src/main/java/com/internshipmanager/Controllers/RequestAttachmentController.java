@@ -26,7 +26,7 @@ public class RequestAttachmentController {
         return requestAttachment.orElse(null);
     }
 
-    @GetMapping("/byRequest/{goalId}")
+    @GetMapping("/byRequest/{requestId}")
     public List<RequestAttachment> getByRequest(@PathVariable Long requestId) {
         List<RequestAttachment> requestAttachments = repository.findByRequest_id(requestId);
 

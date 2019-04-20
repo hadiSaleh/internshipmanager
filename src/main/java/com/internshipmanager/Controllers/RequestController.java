@@ -36,6 +36,7 @@ public class RequestController {
     @PostMapping("complete")
     public Request completeRequest(@RequestBody Request updatedRequest) {
         Request request = requestRepository.findById(updatedRequest.getId()).get();
+        request.setNote(updatedRequest.getNote());
         request.setCompleted(true);
         return requestRepository.save(request);
     }

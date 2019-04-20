@@ -25,6 +25,8 @@ public class Request {
     @Column(name = "completed", nullable = false)
     private boolean completed;
 
+    @Column(name = "note")
+    private String note;
 
     public long getId() {
         return id;
@@ -72,5 +74,13 @@ public class Request {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

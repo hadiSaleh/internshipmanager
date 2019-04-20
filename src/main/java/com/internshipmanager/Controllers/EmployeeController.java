@@ -53,8 +53,15 @@ public class EmployeeController {
     }
 
     @PostMapping("update")
-    public Employee completeGoal(@RequestBody Employee updatedEmployee) {
+    public Employee updateEmployee(@RequestBody Employee updatedEmployee) {
         return employeeRepository.save(updatedEmployee);
+    }
+
+    @PostMapping("updateToken")
+    public Employee updateEmployeeToken(@RequestBody Employee updatedEmployee) {
+        Employee employee = employeeRepository.findById(updatedEmployee.getId()).get();
+        employee.setFireBaseToken(updatedEmployee.getFireBaseToken());
+        return employeeRepository.save(employee);
     }
 
     @PostMapping

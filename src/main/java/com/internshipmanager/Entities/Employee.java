@@ -27,6 +27,9 @@ public class Employee {
     @JoinColumn(name = "office_id")
     private Office office;
 
+    @Column(name = "fire_base_token")
+    private String fireBaseToken;
+
     public long getId() {
         return id;
     }
@@ -81,5 +84,13 @@ public class Employee {
 
     public void setOffice(Office office) {
         this.office = office;
+    }
+
+    public String getFireBaseToken() {
+        return fireBaseToken;
+    }
+
+    public void setFireBaseToken(String fireBaseToken) {
+        this.fireBaseToken = fireBaseToken;
     }
 }
