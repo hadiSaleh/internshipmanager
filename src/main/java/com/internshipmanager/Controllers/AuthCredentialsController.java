@@ -25,7 +25,7 @@ public class AuthCredentialsController {
             return null;
         }
 
-        if (auth.getPasswordHash().equals(authCredentials.getPasswordHash())) {
+        if (auth.getPasswordHash().toUpperCase().equals(authCredentials.getPasswordHash())) {
             return employeeRepository.findByEmail(auth.getEmail());
         }
 

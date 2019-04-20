@@ -77,7 +77,7 @@ public class EmployeeController {
         employee.setLastName(newEmployee.getLastName());
         employee.setCity(newEmployee.getCity());
         employee.setAdministrator(newEmployee.getAdministrator());
-        employee.setOffice(newEmployee.getOffice());
+        employee.setFireBaseToken(newEmployee.getFireBaseToken());
         employee = employeeRepository.save(employee);
 
         AuthCredentials authCredentials = new AuthCredentials();

@@ -23,10 +23,6 @@ public class Employee {
     @Column(name = "administrator", nullable = false)
     private boolean administrator;
 
-    @ManyToOne
-    @JoinColumn(name = "office_id")
-    private Office office;
-
     @Column(name = "fire_base_token")
     private String fireBaseToken;
 
@@ -76,14 +72,6 @@ public class Employee {
 
     public void setAdministrator(boolean administrator) {
         this.administrator = administrator;
-    }
-
-    public Office getOffice() {
-        return office;
-    }
-
-    public void setOffice(Office office) {
-        this.office = office;
     }
 
     public String getFireBaseToken() {
