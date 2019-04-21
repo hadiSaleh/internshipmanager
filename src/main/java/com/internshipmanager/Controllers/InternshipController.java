@@ -54,4 +54,11 @@ public class InternshipController {
 
         return internships;
     }
+
+    @PostMapping("complete")
+    public Internship completeInternship(@RequestBody Internship updatedInternship) {
+        Internship internship = internshipRepository.findById(updatedInternship.getId()).get();
+        internship.setActive(false);
+        return internshipRepository.save(internship);
+    }
 }
