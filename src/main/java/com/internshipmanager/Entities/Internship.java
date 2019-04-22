@@ -36,6 +36,15 @@ public class Internship {
     @Column(name = "phone_number", length = 50)
     private String phoneNumber;
 
+    @Column(name = "instagram")
+    private String instagram;
+
+    @Column(name = "twitter")
+    private String twitter;
+
+    @Column(name = "facebook")
+    private String facebook;
+
     @Column(name = "active", nullable = false)
     private boolean active;
 
@@ -120,6 +129,30 @@ public class Internship {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getInstagram() {
+        return instagram;
+    }
+
+    public void setInstagram(String instagram) {
+        this.instagram = instagram;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
     public boolean getActive() {
